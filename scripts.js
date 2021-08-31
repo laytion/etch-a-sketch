@@ -1,13 +1,25 @@
 const container = document.querySelector('#container');
 const clearBtn = document.querySelector('#clearBtn');
+const pencilBtn = document.querySelector('#pencil');
+const eraserBtn = document.querySelector('#eraser');
+const rgbBtn = document.querySelector('#rgb');
 
+//default number of squares: 16
 for (let i = 0; i < 16; i++) {
     let div = document.createElement('div');
     div.classList.add('squares');
     container.appendChild(div);
 }
+//default pencil
+changeSquaresColor('black');
 
-changeSquaresColor();
+eraserBtn.addEventListener('click', () => {
+    changeSquaresColor('white');
+})
+
+pencilBtn.addEventListener('click', () => {
+    changeSquaresColor('black');
+})
 
 clearBtn.addEventListener('click', () => {
     while (container.firstChild) {
@@ -31,23 +43,17 @@ clearBtn.addEventListener('click', () => {
     changeSquaresSize(squareSize);
 
 
-    changeSquaresColor();
+    changeSquaresColor('black');
 
 })
 
-function changeSquaresColor() {
+function changeSquaresColor(color) {
     document.querySelectorAll('.squares').forEach(square =>
         square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black';
+            square.style.backgroundColor = color;
         }))
 }
 
-// function changeSquaresSize(squareSize) {
-//     let square = document.querySelector('.squares');
-//     squareWidth = 960 / squareSize;
-//     square.style.width = squareWidth + 'px';
-//     square.style.height = squareWidth + 'px';
-// }
 
 function changeSquaresSize(squareSize) {
     squareWidth = (960 / squareSize) * 0.9;
