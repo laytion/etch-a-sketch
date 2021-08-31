@@ -1,0 +1,16 @@
+.squares{
+    border: 1px solid black;
+    width: 216px;
+    height: 216px;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 960px;
+}
+
+/* .squares:hover{
+    background-color: black;
+} */
