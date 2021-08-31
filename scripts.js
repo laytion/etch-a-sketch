@@ -13,6 +13,16 @@ for (let i = 0; i < 16; i++) {
 //default pencil
 changeSquaresColor('black');
 
+rgbBtn.addEventListener('click', () => {
+    document.querySelectorAll('.squares').forEach(square =>
+        square.addEventListener('mouseover', () => {
+            color1 = Math.round(Math.random() * 100);
+            color2 = Math.round(Math.random() * 100);
+            color3 = Math.round(Math.random() * 100);
+            square.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
+        }))
+})
+
 eraserBtn.addEventListener('click', () => {
     changeSquaresColor('white');
 })
